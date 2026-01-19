@@ -5,10 +5,18 @@
 <h1 align="center">nanobanana</h1>
 
 <p align="center">
-  Gemini image generation from the command line. Single binary, no dependencies.
+  Gemini image generation from the command line.
 </p>
 
 ## Installation
+
+### npm (recommended)
+
+```bash
+npm install -g @factory/nanobanana
+```
+
+### Standalone binary
 
 ```bash
 # macOS (Apple Silicon)
@@ -29,7 +37,9 @@ chmod +x nanobanana
 Invoke-WebRequest -Uri "https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-windows-x64.exe" -OutFile "nanobanana.exe"
 ```
 
-Then set your API key:
+## Setup
+
+Set your API key:
 
 ```bash
 # macOS/Linux

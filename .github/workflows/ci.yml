@@ -20,12 +20,18 @@ jobs:
         run: bun install
 
       - name: Type check
-        run: bun run tsc --noEmit
+        run: bun run typecheck
 
-      - name: Test build
+      - name: Build for npm
+        run: npm run build:js
+
+      - name: Test npm CLI
+        run: node dist/cli.js --help
+
+      - name: Build standalone binary
         run: bun build cli.ts --compile --outfile nanobanana
 
-      - name: Test CLI
+      - name: Test standalone CLI
         run: ./nanobanana --help
 
   unit-tests:

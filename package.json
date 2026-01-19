@@ -1,29 +1,50 @@
 {
-  "name": "nanobanana-cli",
+  "name": "@factory/nanobanana",
+  "publishConfig": {
+    "access": "public"
+  },
   "version": "1.0.1",
   "description": "CLI for Gemini image generation (Nano Banana Pro)",
   "type": "module",
+  "main": "dist/lib.js",
+  "types": "dist/lib.d.ts",
   "bin": {
-    "nanobanana": "./cli.ts"
+    "nanobanana": "dist/cli.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "bun run cli.ts",
     "test": "bun test",
     "test:unit": "bun test tests/unit.test.ts",
     "test:e2e": "bun test tests/e2e.test.ts",
     "test:integration": "bun test tests/integration.test.ts --timeout 180000",
+    "typecheck": "tsc -p tsconfig.test.json --noEmit",
+    "build:js": "tsc",
     "build": "bun build cli.ts --compile --outfile nanobanana",
     "build:linux": "bun build cli.ts --compile --target=bun-linux-x64 --outfile nanobanana-linux",
     "build:mac": "bun build cli.ts --compile --target=bun-darwin-arm64 --outfile nanobanana-mac",
-    "build:windows": "bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe"
+    "build:windows": "bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe",
+    "prepublishOnly": "npm run build:js"
   },
-  "keywords": ["gemini", "image-generation", "ai", "cli"],
+  "keywords": ["gemini", "image-generation", "ai", "cli", "generative-ai"],
   "author": "Eno Reyes",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Factory-AI/nanobanana-cli.git"
+  },
+  "homepage": "https://github.com/Factory-AI/nanobanana-cli#readme",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@google/genai": "^0.7.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.6"
+    "@types/bun": "^1.3.6",
+    "@types/node": "^25.0.9",
+    "typescript": "^5.9.3"
   }
 }
