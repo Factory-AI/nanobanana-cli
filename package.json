@@ -1,0 +1,26 @@
+{
+  "name": "nanobanana-cli",
+  "version": "1.0.0",
+  "description": "CLI for Gemini image generation (Nano Banana Pro)",
+  "type": "module",
+  "bin": {
+    "nanobanana": "./cli.ts"
+  },
+  "scripts": {
+    "start": "bun run cli.ts",
+    "test": "bun test",
+    "test:unit": "bun test tests/unit.test.ts",
+    "test:e2e": "bun test tests/e2e.test.ts",
+    "test:integration": "bun test tests/integration.test.ts --timeout 180000",
+    "build": "bun build cli.ts --compile --outfile nanobanana",
+    "build:linux": "bun build cli.ts --compile --target=bun-linux-x64 --outfile nanobanana-linux",
+    "build:mac": "bun build cli.ts --compile --target=bun-darwin-arm64 --outfile nanobanana-mac",
+    "build:windows": "bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe"
+  },
+  "keywords": ["gemini", "image-generation", "ai", "cli"],
+  "author": "Eno Reyes",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@google/genai": "^0.7.0"
+  }
+}
