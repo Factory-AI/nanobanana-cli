@@ -28,6 +28,13 @@ jobs:
       - name: Test npm CLI
         run: node dist/cli.js --help
 
+      - name: Test npm pack and install
+        run: |
+          npm pack
+          npm install -g factory-nanobanana-*.tgz
+          nanobanana --help
+          nanobanana tips generate
+
       - name: Build standalone binary
         run: bun build cli.ts --compile --outfile nanobanana
 
