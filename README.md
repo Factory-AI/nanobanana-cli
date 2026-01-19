@@ -125,7 +125,3 @@ To create a new release:
 1. Bump the version in `package.json`
 2. Create and push a tag: `git tag v1.x.x && git push --tags`
 3. GitHub Actions will build binaries for all platforms and create the release
-
-## License
-
-MIT
