@@ -20,10 +20,21 @@ curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/na
 chmod +x nanobanana
 ```
 
+```powershell
+# Windows (PowerShell)
+Invoke-WebRequest -Uri "https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-windows-x64.exe" -OutFile "nanobanana.exe"
+```
+
 Then set your API key:
 
 ```bash
+# macOS/Linux
 export GEMINI_API_KEY="your-api-key"
+```
+
+```powershell
+# Windows (PowerShell)
+$env:GEMINI_API_KEY="your-api-key"
 ```
 
 Get an API key at https://aistudio.google.com/apikey
