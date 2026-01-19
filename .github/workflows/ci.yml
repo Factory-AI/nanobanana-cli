@@ -28,6 +28,55 @@ jobs:
       - name: Test CLI
         run: ./nanobanana --help
 
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run unit tests
+        run: bun test tests/unit.test.ts
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run e2e tests
+        run: bun test tests/e2e.test.ts
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    # Only run for authorized contributors
+    if: github.actor == 'enoreyes' || github.actor == 'factory-droid[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Run integration tests
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: bun test tests/integration.test.ts --timeout 180000
+
   version-check:
     runs-on: ubuntu-latest
     if: github.event_name == 'pull_request'
