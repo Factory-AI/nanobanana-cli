@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 
 import {
   parseArgs,
@@ -7,7 +7,7 @@ import {
   story,
   showTips,
   showHelp,
-} from "./lib";
+} from "./lib.js";
 
 async function main() {
   const args = process.argv.slice(2);
