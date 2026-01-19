@@ -15,6 +15,10 @@
 curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-darwin-arm64 -o nanobanana
 chmod +x nanobanana
 
+# macOS (Intel)
+curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-darwin-x64 -o nanobanana
+chmod +x nanobanana
+
 # Linux (x64)
 curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-linux-x64 -o nanobanana
 chmod +x nanobanana
@@ -113,6 +117,14 @@ bun build cli.ts --compile --target=bun-linux-x64 --outfile nanobanana-linux
 bun build cli.ts --compile --target=bun-darwin-arm64 --outfile nanobanana-darwin-arm64
 bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe
 ```
+
+## Releasing
+
+To create a new release:
+
+1. Bump the version in `package.json`
+2. Create and push a tag: `git tag v1.x.x && git push --tags`
+3. GitHub Actions will build binaries for all platforms and create the release
 
 ## License
 
