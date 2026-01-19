@@ -15,7 +15,7 @@
   },
   "keywords": ["gemini", "image-generation", "ai", "cli"],
   "author": "Eno Reyes",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "dependencies": {
     "@google/genai": "^0.7.0"
   }

@@ -1,28 +1,32 @@
-# nanobanana
+<p align="center">
+  <img src="banner.png" alt="nanobanana" width="400">
+</p>
 
-Gemini image generation from the command line. Single binary, no dependencies.
+<h1 align="center">nanobanana</h1>
+
+<p align="center">
+  Gemini image generation from the command line. Single binary, no dependencies.
+</p>
 
 ## Installation
 
-Download the binary for your platform from [Releases](../../releases), or build from source:
-
 ```bash
-# Build for current platform
-bun build cli.ts --compile --outfile nanobanana
+# macOS (Apple Silicon)
+curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-darwin-arm64 -o nanobanana
+chmod +x nanobanana
 
-# Cross-compile
-bun build cli.ts --compile --target=bun-linux-x64 --outfile nanobanana-linux
-bun build cli.ts --compile --target=bun-darwin-arm64 --outfile nanobanana-mac
-bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe
+# Linux (x64)
+curl -L https://github.com/Factory-AI/nanobanana-cli/releases/latest/download/nanobanana-linux-x64 -o nanobanana
+chmod +x nanobanana
 ```
 
-## Setup
-
-Get a Gemini API key at https://aistudio.google.com/apikey and set it:
+Then set your API key:
 
 ```bash
 export GEMINI_API_KEY="your-api-key"
 ```
+
+Get an API key at https://aistudio.google.com/apikey
 
 ## Usage
 
@@ -79,12 +83,24 @@ Run `nanobanana tips <command>` for detailed options and examples.
 
 Images are saved to `./nanobanana-output/` in the current directory.
 
-## Model
+## Development
 
-Uses `gemini-3-pro-image-preview` (Nano Banana Pro) by default. Override with:
+Build from source (requires [Bun](https://bun.sh)):
 
 ```bash
-export NANOBANANA_MODEL="gemini-2.5-flash-image"
+# Install dependencies
+bun install
+
+# Run directly
+bun run cli.ts generate "a cat"
+
+# Build for current platform
+bun build cli.ts --compile --outfile nanobanana
+
+# Cross-compile
+bun build cli.ts --compile --target=bun-linux-x64 --outfile nanobanana-linux
+bun build cli.ts --compile --target=bun-darwin-arm64 --outfile nanobanana-darwin-arm64
+bun build cli.ts --compile --target=bun-windows-x64 --outfile nanobanana.exe
 ```
 
 ## License
