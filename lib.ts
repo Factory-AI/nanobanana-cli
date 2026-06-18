@@ -6,7 +6,7 @@ import * as path from "path";
 
 const execAsync = promisify(exec);
 export const OUTPUT_DIR = "nanobanana-output";
-export const DEFAULT_MODEL = "gemini-3-pro-image-preview";
+export const DEFAULT_MODEL = "gemini-3.1-flash-image";
 
 // ============ Utilities ============
 
